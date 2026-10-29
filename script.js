@@ -4,25 +4,27 @@ let room3=document.getElementById("room3");
 let room4=document.getElementById("room4");
 let room5=document.getElementById("room5");
 
-room1.addEventListener("click", function() {
+function apriRoom1() { 
     window.location.href = "rooms/room1.html";
-});
-
-room2.addEventListener("click", function() {
+}
+function apriRoom2() {
     window.location.href = "rooms/room2.html";
-});
-
-room3.addEventListener("click", function() {
+}
+function apriRoom3() {
     window.location.href = "rooms/room3.html";
-});
-
-room4.addEventListener("click", function() {
+}
+function apriRoom4() {
     window.location.href = "rooms/room4.html";
-});
-
-room5.addEventListener("click", function() {
+}
+function apriRoom5() {
     window.location.href = "rooms/room5.html";
-});
+}
+
+room1.addEventListener("click", apriRoom1);
+room2.addEventListener("click", apriRoom2);
+room3.addEventListener("click", apriRoom3);
+room4.addEventListener("click", apriRoom4);
+room5.addEventListener("click", apriRoom5);
 
 let escapeButton = document.getElementById("escape-button");
 
@@ -52,6 +54,33 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     else {
         escapeText.textContent = "Completa tutte le stanze per sbloccare l'uscita!";
+    }
+
+    //controlliamo tutte le stanze dal loro valore nella localstorage
+    if (localStorage.getItem("room1") === "true") {
+        room1.classList.add("completed");
+        //rendiamo non piu' cliccabile la stanza 1
+        room1.removeEventListener("click", apriRoom1);
+    }
+    if (localStorage.getItem("room2") === "true") {
+        room2.classList.add("completed");
+        //rendiamo non piu' cliccabile la stanza 2
+        room2.removeEventListener("click", apriRoom2);
+    }
+    if (localStorage.getItem("room3") === "true") {
+        room3.classList.add("completed");
+        //rendiamo non piu' cliccabile la stanza 3
+        room3.removeEventListener("click", apriRoom3);
+    }
+    if (localStorage.getItem("room4") === "true") {
+        room4.classList.add("completed");
+        //rendiamo non piu' cliccabile la stanza 4
+        room4.removeEventListener("click", apriRoom4);
+    }
+    if (localStorage.getItem("room5") === "true") {
+        room5.classList.add("completed");
+        //rendiamo non piu' cliccabile la stanza 5
+        room5.removeEventListener("click", apriRoom5);
     }
 });
 

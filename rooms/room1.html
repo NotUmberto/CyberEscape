@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title>Room 1</title>
+        <link rel="stylesheet" href="room1.css">
+    </head>
+    <body>
+        <h1>Stanza 1: Le Password</h1>
+        <main id="container">
+            <section id="passwords">
+                <div id="passwords-list">
+                    <div id="password-div1" class="password-div1"> 
+                        <span> Password1: </span> <span id="password1"> AAA123! </span> <br>
+                        <input type="button" id="corretto1" value="Corretto">
+                        <input type="button" id="sbagliato1" value="Sbagliato">
+                        <p id="result1"></p>
+                    </div> 
+                    
+                    <br>
+
+                    <div id="password-div2" class="password-div2">
+                        <span> Password2: </span> <span id="password2"> Mela2026 </span> <br>
+                        <input type="button" id="corretto2" value="Corretto">
+                        <input type="button" id="sbagliato2" value="Sbagliato">
+                        <p id="result2"></p>
+                    </div>
+
+                    <br>
+
+                    <div id="password-div3" class="password-div3">
+                        <span> Password3: </span> <span id="password3"> Treno@Blu </span> <br>
+                        <input type="button" id="corretto3" value="Corretto">
+                        <input type="button" id="sbagliato3" value="Sbagliato">
+                        <p id="result3"></p>
+                    </div>
+
+                    <br>
+
+                    <div id="password-div4" class="password-div4">
+                        <span> Password4: </span> <span id="password4"> gatto12nero! </span> <br>
+                        <input type="button" id="corretto4" value="Corretto">
+                        <input type="button" id="sbagliato4" value="Sbagliato">
+                        <br>
+                        <p id="result4"></p>
+                    </div>
+                </div>
+
+                <div id="create-password">
+                    <p>Adesso crea una buona password:</p>
+                    <input type="text" id="user-password" placeholder="Inserisci la tua password">
+                    <br>
+                    <input type="button" id="check-password" value="Controlla">
+                    <p id="password-feedback"></p>
+                </div>
+            </section>
+            <aside id="rules">
+                <div>
+                    <p>Per una buona password:</p>
+                    <ul>
+                        <li>La password deve essere lunga almeno 8 caratteri</li>
+                        <li>La password deve contenere almeno una lettera maiuscola</li>
+                        <li>La password deve contenere almeno una lettera minuscola</li>
+                        <li>La password deve contenere almeno un numero</li>
+                        <li>La password deve contenere almeno un carattere speciale</li>
+                    </ul>
+                </div>
+            </aside>
+        </main>
+
+        <input type="button" id="home" value="Vai alla home">
+
+        <script src="room1.js"></script>
+    </body>
+</html>
