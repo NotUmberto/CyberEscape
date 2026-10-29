@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: clamp(32px, 6vw, 70px) 20px;
+    color: #edf4ff;
+    background:
+        radial-gradient(circle at 15% 15%, rgba(35, 108, 139, 0.3), transparent 30%),
+        radial-gradient(circle at 85% 85%, rgba(181, 31, 43, 0.18), transparent 28%),
+        linear-gradient(135deg, #08111f 0%, #101a2d 50%, #16243c 100%);
+    font-family: "Nunito", sans-serif;
+    text-align: center;
+}
+
+h1 {
+    margin: 0 0 clamp(30px, 5vw, 50px);
+    color: #ffffff;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-shadow: 0 0 12px rgba(114, 212, 229, 0.7),
+        0 4px 0 #1d6680;
+}
+
+#game-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto clamp(28px, 5vw, 45px);
+    gap: clamp(20px, 3vw, 35px);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.room {
+    width: clamp(190px, 25vw, 280px);
+    height: clamp(135px, 18vw, 190px);
+    overflow: hidden;
+    border: 4px solid #287f99;
+    border-radius: 14px;
+    background: #1b2b47;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.room:hover {
+    transform: translateY(-5px);
+    border-color: #72d4e5;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.5);
+}
+
+.room img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+body > p {
+    margin: 20px auto;
+    color: #b7c8df;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+}
+
+#escape-button {
+    padding: 18px clamp(40px, 7vw, 70px);
+    border: 2px solid #8f111b;
+    border-radius: 8px;
+    color: #ffffff;
+    background: #b51f2b;
+    font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    box-shadow: 0 5px 0 #700d15;
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+#escape-button:hover {
+    background: #d12a37;
+    transform: translateY(-2px);
+}
+
+#escape-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #700d15;
+}
+
+#escape-button.not-complete-button {
+    background: #555;
+    border-color: #555;
+    box-shadow: 0 5px 0 #333;
+    cursor: not-allowed;
+}
+
+#escape-button.not-complete-button:hover {
+    background: #555;
+    transform: none;
+}
+
+@media (max-width: 500px) {
+    body {
+        padding: 28px 14px;
+    }
+
+    .room {
+        width: min(90vw, 280px);
+        height: 170px;
+    }
+}

@@ -1,0 +1,64 @@
+let room1=document.getElementById("room1");
+let room2=document.getElementById("room2");
+let room3=document.getElementById("room3");
+let room4=document.getElementById("room4");
+let room5=document.getElementById("room5");
+
+room1.addEventListener("click", function() {
+    window.location.href = "rooms/room1.html";
+});
+
+room2.addEventListener("click", function() {
+    window.location.href = "rooms/room2.html";
+});
+
+room3.addEventListener("click", function() {
+    window.location.href = "rooms/room3.html";
+});
+
+room4.addEventListener("click", function() {
+    window.location.href = "rooms/room4.html";
+});
+
+room5.addEventListener("click", function() {
+    window.location.href = "rooms/room5.html";
+});
+
+let escapeButton = document.getElementById("escape-button");
+
+//quando carichiamo il DOM controlliamo se il valore di room nella localstorage e' 5, se si allora abilitiamo il bottone escape
+document.addEventListener("DOMContentLoaded", function() {
+    let room = localStorage.getItem("room");
+
+    //gestiamo il bottone
+    if (room == null) { 
+        localStorage.setItem("room", "0");
+        escapeButton.disabled = true;
+        escapeButton.classList.add("not-complete-button");
+    } else if (room === "5") {
+        escapeButton.disabled = false;
+        escapeButton.classList.remove("not-complete-button");
+    } else {
+        escapeButton.disabled = true;
+        escapeButton.classList.add("not-complete-button");
+    }
+
+    //gestiamo la scritta
+    let escapeText = document.getElementById("escape-text");
+    if (room === "5") {
+        escapeText.textContent = "Complimenti! Hai completato tutte le stanze!";
+    } else if (parseInt(room) > 0) { 
+        escapeText.textContent = "Hai completato " + room + "/5.";
+    }
+    else {
+        escapeText.textContent = "Completa tutte le stanze per sbloccare l'uscita!";
+    }
+});
+
+//quando clicco controlla nella localstorage il valore room se e' 5
+escapeButton.addEventListener("click", function() {
+    let room = localStorage.getItem("room");
+    if (room === "5") {
+        window.location.href = "escape.html";
+    }
+});
