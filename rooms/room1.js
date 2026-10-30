@@ -10,6 +10,8 @@ let userPassword = document.getElementById("user-password");
 
 checkButton.addEventListener("click", function() {
     let password = userPassword.value;
+    let passwordFeedback = document.getElementById("password-feedback");
+
     if (controllaPassword(password)) {
         localStorage.setItem("room", (parseInt(localStorage.getItem("room")) + 1));
         localStorage.setItem("room1", "true");
@@ -20,9 +22,13 @@ checkButton.addEventListener("click", function() {
         } else { 
             checkButton.disabled = true;
         }
+        passwordFeedback.textContent = "La password e' valida!";
+        passwordFeedback.classList.remove("invalid");
+        passwordFeedback.classList.add("valid");
     } else { 
-        let passwordFeedback = document.getElementById("password-feedback");
         passwordFeedback.textContent = "La password non e' valida!";
+        passwordFeedback.classList.remove("valid");
+        passwordFeedback.classList.add("invalid");
     }
 });
 
@@ -31,6 +37,12 @@ homeButton.addEventListener("click", function() {
 });
 
 let passwordList = document.getElementById("passwords-list");
+let risposteCorrette = {
+    "1": "Sbagliato",
+    "2": "Sbagliato",
+    "3": "Sbagliato",
+    "4": "Sbagliato"
+};
 
 passwordList.addEventListener("click", function(event) {
     //controlliamo che sia un input button quello cliccato
@@ -38,10 +50,15 @@ passwordList.addEventListener("click", function(event) {
         console.log("Bottone cliccato: " + event.target.value);
         //controlliamo da quale div proviene (password-divn)
         let divId = event.target.parentElement;
-        if (event.target.value === "Sbagliato") {
+        let question = divId.id.slice(-1);
+        let resultDiv = document.getElementById("result" + question);
+        let rispostaCorretta = event.target.value === risposteCorrette[question];
+
+        if (rispostaCorretta) {
             console.log("Sbagliato");
-            let question = divId.id.slice(-1);
-            document.getElementById("result" + divId.id.slice(-1)).textContent = "CORRETTO!";
+            resultDiv.textContent = "CORRETTO!";
+            resultDiv.classList.remove("incorrect");
+            resultDiv.classList.add("correct");
             //disattiviamo entrambi i bottoni
             document.getElementById("corretto" + question).disabled = true;
             document.getElementById("sbagliato" + question).disabled = true;
@@ -52,8 +69,8 @@ passwordList.addEventListener("click", function(event) {
             }
         } else { 
             //qua gli diciamo che cosa ha sbagliato
-            let question = divId.id.slice(-1);
-            let resultDiv = document.getElementById("result" + question);
+            resultDiv.classList.remove("correct");
+            resultDiv.classList.add("incorrect");
             switch (question) {
                 case "1":
                     resultDiv.textContent = "La password deve contenere almeno 8 caratteri!";
