@@ -13,8 +13,13 @@ checkButton.addEventListener("click", function() {
     if (controllaPassword(password)) {
         localStorage.setItem("room", (parseInt(localStorage.getItem("room")) + 1));
         localStorage.setItem("room1", "true");
-        homeButton.disabled = false;
-        checkButton.disabled = true;
+        num_right++;
+        if (num_right == 5) {
+            homeButton.disabled = false;
+            checkButton.disabled = true;
+        } else { 
+            checkButton.disabled = true;
+        }
     } else { 
         let passwordFeedback = document.getElementById("password-feedback");
         passwordFeedback.textContent = "La password non e' valida!";
@@ -40,9 +45,29 @@ passwordList.addEventListener("click", function(event) {
             //disattiviamo entrambi i bottoni
             document.getElementById("corretto" + question).disabled = true;
             document.getElementById("sbagliato" + question).disabled = true;
+            num_right++;
+            if (num_right == 5) {
+                homeButton.disabled = false;
+                checkButton.disabled = true;
+            }
         } else { 
             //qua gli diciamo che cosa ha sbagliato
-
+            let question = divId.id.slice(-1);
+            let resultDiv = document.getElementById("result" + question);
+            switch (question) {
+                case "1":
+                    resultDiv.textContent = "La password deve contenere almeno 8 caratteri!";
+                    break;
+                case "2":
+                    resultDiv.textContent = "La password deve contenere almeno un carattere speciale!";
+                    break;
+                case "3":
+                    resultDiv.textContent = "La password deve contenere almeno un numero!";
+                    break;
+                case "4":
+                    resultDiv.textContent = "La password deve contenere almeno una lettera maiuscola!";
+                    break;
+            }
         }
     }
 });

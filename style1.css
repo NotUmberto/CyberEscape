@@ -100,6 +100,33 @@ body > p {
     transform: none;
 }
 
+#reset-button {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    padding: 12px 20px;
+    border: 2px solid #287f99;
+    border-radius: 8px;
+    color: #08111f;
+    background: #72d4e5;
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #287f99;
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+#reset-button:hover {
+    background: #9ce8f4;
+    transform: translateY(-2px);
+}
+
+#reset-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #287f99;
+}
+
 @media (max-width: 500px) {
     body {
         padding: 28px 14px;
@@ -108,5 +135,10 @@ body > p {
     .room {
         width: min(90vw, 280px);
         height: 170px;
+    }
+
+    #reset-button {
+        right: 14px;
+        bottom: 14px;
     }
 }

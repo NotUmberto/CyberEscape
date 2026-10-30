@@ -91,3 +91,9 @@ escapeButton.addEventListener("click", function() {
         window.location.href = "escape.html";
     }
 });
+
+let resetButton = document.getElementById("reset-button");
+resetButton.addEventListener("click", function() {
+    localStorage.clear();
+    window.location.reload();
+});
