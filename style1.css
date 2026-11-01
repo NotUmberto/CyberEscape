@@ -23,6 +23,7 @@ h1 {
     letter-spacing: 0.04em;
     text-shadow: 0 0 12px rgba(114, 212, 229, 0.7),
         0 4px 0 #1d6680;
+    animation: comparsa-dall-alto 0.8s ease-out both;
 }
 
 #game-container {
@@ -32,6 +33,7 @@ h1 {
     gap: clamp(20px, 3vw, 35px);
     flex-wrap: wrap;
     justify-content: center;
+    animation: comparsa 0.8s ease-out 0.2s both;
 }
 
 .room {
@@ -43,10 +45,27 @@ h1 {
     background: #1b2b47;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation: comparsa-dal-basso 0.6s ease-out both;
+}
+
+.room:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.room:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.room:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.room:nth-child(5) {
+    animation-delay: 0.4s;
 }
 
 .room:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px) scale(1.04);
     border-color: #72d4e5;
     box-shadow: 0 10px 22px rgba(0, 0, 0, 0.5);
 }
@@ -62,6 +81,7 @@ body > p {
     margin: 20px auto;
     color: #b7c8df;
     font-size: clamp(1.1rem, 2vw, 1.35rem);
+    animation: comparsa 0.8s ease-out 0.6s both;
 }
 
 #escape-button {
@@ -76,6 +96,7 @@ body > p {
     cursor: pointer;
     box-shadow: 0 5px 0 #700d15;
     transition: transform 0.15s ease, background 0.15s ease;
+    animation: comparsa 0.8s ease-out 0.8s both;
 }
 
 #escape-button:hover {
@@ -115,6 +136,7 @@ body > p {
     cursor: pointer;
     box-shadow: 0 4px 0 #287f99;
     transition: transform 0.15s ease, background 0.15s ease;
+    animation: comparsa 0.8s ease-out 1s both;
 }
 
 #reset-button:hover {
@@ -125,6 +147,52 @@ body > p {
 #reset-button:active {
     transform: translateY(2px);
     box-shadow: 0 2px 0 #287f99;
+}
+
+@keyframes comparsa {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes comparsa-dall-alto {
+    from {
+        opacity: 0;
+        transform: translateY(-24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes comparsa-dal-basso {
+    from {
+        opacity: 0;
+        transform: translateY(28px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
 
 @media (max-width: 500px) {

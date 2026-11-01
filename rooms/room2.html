@@ -9,22 +9,30 @@
         <div id="mail-div">
             <div id="headermail-div">
                 <img id="user-icon" src="../icons/user.jpg" alt="user icon">
-                <span id="user-name"> Nome utente </span>
-                <span id="user-not-verified"> (non verificato) </span>
-                <span id="user-mail"> premio@premio.it </span>
+                <span id="user-name"> Assistenza Account</span>
+                <span id="user-not-verified"> (non verificato) </span> 
+                <span id="user-mail"> - assistenza@secure-account-verifica.example </span>
             </div>
             <div id="bodymail-div">
-                <h2>Titolo mail</h2>
-                <p> testo testo testo testo 
-                    <span id=""> </span>
-                    testo testo testo testo 
+                <h2>⚠️ URGENTE! Il tuo account verrà bloccato entro 24 ore!</h2>
+                <p> Gentile utente, <br>
+                    Abbiamo rilevato un'attività insolita sul tuo account. <br>
+                    Per motivi di sicurezza, il tuo account verrà temporaneamente sospeso se non confermerai <span id="wrong-word">imediattamnate</span> i tuoi dati. <br>
+                    Per evitare il blocco definitivo, clicca sul pulsante qui sotto e verifica le tue informazioni personali: <br><br> <b> -> clicca sul seguente link per verificare il tuo account </b> <br>
+                    <span id="fake-link"> https://www.gogle.verifica.account.com/ </span> <br><br>
+                    <span id="warning"><b>ATTENZIONE:</b> se non completerai la procedura entro 24 ore, perderai definitivamente l'accesso al tuo account e a tutti i tuoi contenuti.<br>
+                    <b>Non aspettare e agisci subito!</b></span><br><br>
+                    Grazie per la collaborazione.</span><br><br>
+                    <span id="mail-from">Team Sicurezza Account <br>
+                    Servizio di assistenza clienti</span>
                 </p>
             </div>
         </div>
 
-        <p id="comment"></p>
-
-        <p id="points">0/?</p>
+        <p id="comment"> Clicca sugli elementi sospetti!</p>
+        <input type="button" id="home-button" value="Torna alla home" onclick="window.location.href='../main.html'">
+        <p id="end-message" class="notfinished"></p>
+        <p id="points">0/6</p>
         <script src="room2.js"></script>
     </body>
 </html>
