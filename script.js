@@ -97,3 +97,23 @@ resetButton.addEventListener("click", function() {
     localStorage.clear();
     window.location.reload();
 });
+
+let credit = document.getElementById("credit");
+credit.addEventListener("click", function() {
+    window.location.href = "rooms/credit.html";
+});
+
+let secret=0;
+let h1 = document.querySelector("h1");
+h1.addEventListener("click", function() {
+    secret++;
+    if (secret === 5) {
+        localStorage.setItem("room", "5");
+        localStorage.setItem("room1", "true");
+        localStorage.setItem("room2", "true");
+        localStorage.setItem("room3", "true");
+        localStorage.setItem("room4", "true");
+        localStorage.setItem("room5", "true");
+        window.location.reload();
+    }
+});

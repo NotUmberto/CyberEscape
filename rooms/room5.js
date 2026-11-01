@@ -26,7 +26,7 @@ async function permissions() {
 
     let icon = document.getElementById("icon");
 
-    titolo.innerHTML = "Consentire a <b>WhatsApp</b> di accedere alla fotocamera e al microfono?";
+    titolo.innerHTML = "Consentire a <b>WhatsApp</b> di accedere alla <b>fotocamera</b> e al <b>microfono</b>?";
 
     let risultato = document.getElementById("risultato");
 
@@ -56,7 +56,7 @@ async function permissions() {
 
     icon.src = "../icons/calculator.jpg";
 
-    titolo.innerHTML = "Consentire a <b>Calcolatrice</b> di accedere alla memoria del dispositivo?";
+    titolo.innerHTML = "Consentire a <b>Calcolatrice</b> di accedere alla <b>memoria</b> del dispositivo?";
 
     while (true) {
         let scelta = await attendiScelta();
@@ -75,7 +75,7 @@ async function permissions() {
 
     icon.src = "../icons/googlemaps.webp";
 
-    titolo.innerHTML = "Consentire a <b>Google Maps</b> di accedere alla posizione del dispositivo?";
+    titolo.innerHTML = "Consentire a <b>Google Maps</b> di accedere alla <b>posizione</b> del dispositivo?";
     while (true) {
         let scelta = await attendiScelta();
         if (scelta === "Consenti") {
@@ -92,7 +92,7 @@ async function permissions() {
 
     icon.src = "../icons/browser.jpg";
 
-    titolo.innerHTML = "Consentire a <b>Browser</b> di accedere alla rubrica del dispositivo?";
+    titolo.innerHTML = "Consentire a <b>Browser</b> di accedere alla <b>rubrica</b> del dispositivo?";
     while (true) {
         let scelta = await attendiScelta();
         if (scelta === "Nega") {
@@ -109,7 +109,7 @@ async function permissions() {
 
     icon.src = "../icons/spotify.webp";
 
-    titolo.innerHTML = "Consentire a <b>Spotify</b> di accedere alla memoria del dispositivo?";
+    titolo.innerHTML = "Consentire a <b>Spotify</b> di accedere alla <b>memoria</b> del dispositivo?";
     while (true) {
         let scelta = await attendiScelta();
         if (scelta === "Consenti") {

@@ -1,0 +1,178 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: clamp(30px, 6vw, 70px) 20px;
+    color: #edf4ff;
+    background:
+        radial-gradient(circle at 15% 15%, rgba(35, 108, 139, 0.3), transparent 30%),
+        radial-gradient(circle at 85% 85%, rgba(181, 31, 43, 0.18), transparent 28%),
+        linear-gradient(135deg, #08111f 0%, #101a2d 50%, #16243c 100%);
+    font-family: "Nunito", Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    margin: 0 0 12px;
+    color: #ffffff;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    text-shadow: 0 0 12px rgba(114, 212, 229, 0.7),
+        0 4px 0 #1d6680;
+    animation: comparsa-dall-alto 0.8s ease-out both;
+}
+
+body > p:first-of-type {
+    margin: 0 auto 34px;
+    color: #b7c8df;
+    font-size: clamp(1.15rem, 2.5vw, 1.5rem);
+    font-weight: 700;
+    animation: comparsa 0.8s ease-out 0.15s both;
+}
+
+#Umberto,
+#Fabio {
+    display: inline-flex;
+    width: min(90%, 360px);
+    min-height: 330px;
+    margin: 12px;
+    padding: 28px 22px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #17233c;
+    background: linear-gradient(160deg, #f8fbff, #dce8f5);
+    border: 3px solid #287f99;
+    border-radius: 18px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+    vertical-align: top;
+    animation: scheda-entra 0.7s ease-out both;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#Fabio {
+    animation-delay: 0.18s;
+}
+
+#Umberto:hover,
+#Fabio:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.5);
+}
+
+#Umberto img,
+#Fabio img {
+    width: 145px;
+    height: 145px;
+    margin-bottom: 20px;
+    border: 5px solid #287f99;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 0 6px rgba(114, 212, 229, 0.25),
+        0 7px 14px rgba(21, 44, 75, 0.25);
+    animation: profilo-comparsa 0.7s ease-out 0.35s both;
+}
+
+#Umberto p:first-of-type,
+#Fabio p:first-of-type {
+    margin: 0 0 8px;
+    color: #17233c;
+    font-size: 1.35rem;
+    font-weight: 800;
+}
+
+#Umberto p:last-of-type,
+#Fabio p:last-of-type {
+    margin: 0;
+}
+
+a {
+    color: #155eb0;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+a:hover {
+    color: #b51f2b;
+    text-decoration: underline;
+}
+
+body > p:last-of-type {
+    margin: 34px auto 0;
+    color: #72d4e5;
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 800;
+    animation: comparsa 0.8s ease-out 0.5s both;
+}
+
+@keyframes comparsa {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes comparsa-dall-alto {
+    from {
+        opacity: 0;
+        transform: translateY(-24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scheda-entra {
+    from {
+        opacity: 0;
+        transform: translateY(32px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes profilo-comparsa {
+    from {
+        opacity: 0;
+        transform: scale(0.65) rotate(-8deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@media (max-width: 700px) {
+    body {
+        padding: 28px 12px;
+    }
+
+    #Umberto,
+    #Fabio {
+        margin: 10px 0;
+    }
+}

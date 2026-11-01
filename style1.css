@@ -149,6 +149,36 @@ body > p {
     box-shadow: 0 2px 0 #287f99;
 }
 
+#credit {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    padding: 12px 20px;
+    border: 2px solid #287f99;
+    border-radius: 8px;
+    color: #dce9f8;
+    background: #1b2b47;
+    box-shadow: 0 4px 0 #10243d;
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: transform 0.15s ease, color 0.15s ease,
+        background 0.15s ease;
+    animation: comparsa 0.8s ease-out 1.1s both;
+}
+
+#credit:hover {
+    color: #08111f;
+    background: #72d4e5;
+    transform: translateY(-2px);
+}
+
+#credit:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #10243d;
+}
+
 @keyframes comparsa {
     from {
         opacity: 0;
@@ -207,6 +237,11 @@ body > p {
 
     #reset-button {
         right: 14px;
+        bottom: 14px;
+    }
+
+    #credit {
+        left: 14px;
         bottom: 14px;
     }
 }
