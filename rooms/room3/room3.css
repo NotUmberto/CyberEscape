@@ -5,7 +5,7 @@
 body {
     min-height: 100vh;
     margin: 0;
-    padding: clamp(24px, 5vw, 55px) 16px;
+    padding: clamp(10px, 2vw, 24px) 16px;
     color: #edf4ff;
     background:
         radial-gradient(circle at 15% 15%, rgba(35, 108, 139, 0.3), transparent 30%),
@@ -34,7 +34,7 @@ body > h2 {
 }
 
 #chat-div {
-    width: min(94%, 760px);
+    width: min(96%, 900px);
     min-height: 620px;
     margin: 0 auto;
     overflow: hidden;
@@ -122,11 +122,33 @@ body > h2 {
 }
 
 #mess2 {
-    display: flex;
+    display: grid;
+    width: min(100%, 460px);
+    max-width: 62%;
     margin-right: auto;
     gap: 8px;
-    flex-wrap: wrap;
     align-items: center;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+#mess2 #private-photo {
+    grid-column: 1 / -1;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    margin-bottom: 4px;
+}
+
+#mess2 #save-photo,
+#mess2 #share-photo,
+#mess2 #delete-photo,
+#mess2 #report-photo {
+    min-width: 0;
+    text-align: center;
+}
+
+#mess2 #share-photo {
+    background: #287f99;
 }
 
 #mess3,
@@ -159,13 +181,14 @@ body > h2 {
 
 #private-photo {
     display: block;
-    width: auto;
-    max-width: 100%;
-    height: auto;
-    max-height: 220px;
+    width: 100%;
+    max-width: none;
+    height: 190px;
     flex-basis: 100%;
+    border: 3px solid #8da3b5;
     border-radius: 8px;
-    object-fit: contain;
+    object-fit: cover;
+    object-position: center;
 }
 
 #save-photo,
@@ -226,6 +249,8 @@ body > h2 {
     align-items: center;
     color: #607080;
     background: #ffffff;
+    border: 2px solid #8da3b5;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     border-radius: 28px;
 }
 
@@ -289,12 +314,59 @@ body > h2 {
     color: #145c43;
     background: #d9f7e8;
     border: 3px solid #5de39a;
+    animation: risposta-corretta 0.5s ease-out both;
 }
 
 #response.incorrect {
     color: #8f111b;
     background: #fff0f1;
     border: 3px solid #ef7882;
+    animation: risposta-errata 0.5s ease-out both;
+}
+
+#home-button {
+    display: block;
+    margin: 22px auto 0;
+    padding: 14px 30px;
+    border: 2px solid #287f99;
+    border-radius: 8px;
+    color: #ffffff;
+    background: #287f99;
+    box-shadow: 0 4px 0 #1d5368;
+    font: inherit;
+    font-size: 1.05rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+#home-button:hover:not(:disabled) {
+    filter: brightness(1.15);
+    transform: translateY(-3px);
+}
+
+#home-button:active:not(:disabled) {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #1d5368;
+}
+
+#home-button.disabled-button,
+#home-button:disabled {
+    border-color: #4b5565;
+    color: #aab4c2;
+    background: #454d59;
+    box-shadow: 0 4px 0 #2c333d;
+    cursor: not-allowed;
+    opacity: 0.75;
+}
+
+#home-span {
+    display: block;
+    width: min(94%, 760px);
+    margin: 12px auto 0;
+    color: #5de39a;
+    font-weight: 800;
+    text-align: center;
 }
 
 @keyframes comparsa {
@@ -370,6 +442,30 @@ body > h2 {
     to {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+@keyframes risposta-corretta {
+    from {
+        opacity: 0.35;
+        transform: translateX(-14px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes risposta-errata {
+    from {
+        opacity: 0.35;
+        transform: translateX(14px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
     }
 }
 

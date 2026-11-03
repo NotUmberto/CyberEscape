@@ -122,3 +122,17 @@ h1.addEventListener("click", function() {
         window.location.reload();
     }
 });
+
+function fullscreen() { 
+    document.documentElement.requestFullscreen();
+}
+
+//col bottone usciamo
+let fullscreenButton = document.getElementById("fullscreen-button");
+fullscreenButton.addEventListener("click", function() {
+    if (document.fullscreenElement) {
+        document.exitFullscreen();
+    } else {
+        document.documentElement.requestFullscreen();
+    }
+});

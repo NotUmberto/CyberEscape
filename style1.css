@@ -204,6 +204,34 @@ body > p {
     box-shadow: 0 2px 0 #287f99;
 }
 
+#fullscreen-button {
+    position: fixed;
+    right: 145px;
+    bottom: 24px;
+    padding: 12px 20px;
+    border: 2px solid #8b7bd8;
+    border-radius: 8px;
+    color: #ffffff;
+    background: #5146a3;
+    box-shadow: 0 4px 0 #342d70;
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease;
+    animation: comparsa 0.8s ease-out 1.05s both;
+}
+
+#fullscreen-button:hover {
+    background: #6a5bd0;
+    transform: translateY(-2px);
+}
+
+#fullscreen-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #342d70;
+}
+
 #credit {
     position: fixed;
     bottom: 24px;
@@ -293,6 +321,12 @@ body > p {
     #reset-button {
         right: 14px;
         bottom: 14px;
+    }
+
+    #fullscreen-button {
+        right: 125px;
+        bottom: 14px;
+        padding: 12px 14px;
     }
 
     #credit {
