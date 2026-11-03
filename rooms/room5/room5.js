@@ -54,7 +54,7 @@ async function permissions() {
         }
     }
 
-    icon.src = "../icons/calculator.jpg";
+    icon.src = "../../icons/calculator.jpg";
 
     titolo.innerHTML = "Consentire a <b>Calcolatrice</b> di accedere alla <b>memoria</b> del dispositivo?";
 
@@ -73,7 +73,7 @@ async function permissions() {
     }
 
 
-    icon.src = "../icons/googlemaps.webp";
+    icon.src = "../../icons/googlemaps.webp";
 
     titolo.innerHTML = "Consentire a <b>Google Maps</b> di accedere alla <b>posizione</b> del dispositivo?";
     while (true) {
@@ -90,7 +90,7 @@ async function permissions() {
         }
     }
 
-    icon.src = "../icons/browser.jpg";
+    icon.src = "../../icons/browser.jpg";
 
     titolo.innerHTML = "Consentire a <b>Browser</b> di accedere alla <b>rubrica</b> del dispositivo?";
     while (true) {
@@ -107,7 +107,7 @@ async function permissions() {
         }
     }
 
-    icon.src = "../icons/spotify.webp";
+    icon.src = "../../icons/spotify.webp";
 
     titolo.innerHTML = "Consentire a <b>Spotify</b> di accedere alla <b>memoria</b> del dispositivo?";
     while (true) {
@@ -124,7 +124,7 @@ async function permissions() {
         }
     }
 
-    icon.src = "../icons/youtube.webp";
+    icon.src = "../../icons/youtube.webp";
 
     titolo.innerHTML = "Consentire a <b>YouTube</b> di accedere alla <b>posizione</b> del dispositivo?";
     while (true) {
@@ -141,7 +141,7 @@ async function permissions() {
         }
     }
 
-    icon.src = "../icons/playstore.webp";
+    icon.src = "../../icons/playstore.webp";
 
     titolo.innerHTML = "Consentire a <b>Play Store</b> di accedere alla <b>posizione</b> del dispositivo?";
     while (true) {
@@ -170,5 +170,5 @@ async function permissions() {
 permissions();
 
 homeButton.addEventListener("click", function() {
-    window.location.href = "../main.html";
+    window.location.href = "../../main.html";
 });

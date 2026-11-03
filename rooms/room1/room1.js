@@ -33,7 +33,7 @@ checkButton.addEventListener("click", function() {
 });
 
 homeButton.addEventListener("click", function() {
-    window.location.href = "../main.html";
+    window.location.href = "../../main.html";
 });
 
 let passwordList = document.getElementById("passwords-list");

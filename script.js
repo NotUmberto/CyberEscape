@@ -5,19 +5,19 @@ let room4=document.getElementById("room4");
 let room5=document.getElementById("room5");
 
 function apriRoom1() { 
-    window.location.href = "rooms/room1.html";
+    window.location.href = "rooms/room1/room1.html";
 }
 function apriRoom2() {
-    window.location.href = "rooms/room2.html";
+    window.location.href = "rooms/room2/room2.html";
 }
 function apriRoom3() {
-    window.location.href = "rooms/room3.html";
+    window.location.href = "rooms/room3/room3.html";
 }
 function apriRoom4() {
-    window.location.href = "rooms/room4.html";
+    window.location.href = "rooms/room4/room4.html";
 }
 function apriRoom5() {
-    window.location.href = "rooms/room5.html";
+    window.location.href = "rooms/room5/room5.html";
 }
 
 room1.addEventListener("click", apriRoom1);

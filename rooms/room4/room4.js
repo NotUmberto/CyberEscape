@@ -13,7 +13,7 @@ let homeButton = document.getElementById("home-button");
 homeButton.disabled = true;
 
 homeButton.addEventListener("click", function() {
-    window.location.href = "../main.html";
+    window.location.href = "../../main.html";
 });
 
 function checkAllAnswers() {
