@@ -50,6 +50,7 @@ newsDiv.addEventListener("click", function() {
                     response.textContent += " Putroppo e' vero. L'uso di uno screen-timer puo' aiutare a limitare il tempo passato sui social e ridurre lo stress!";
                     break;
             }
+            response.classList.remove("incorrect");
             response.classList.add("correct");
             //disattiviamo etrambi i bottoni
             let button1 = document.getElementById("vera" + newsId);
@@ -60,6 +61,24 @@ newsDiv.addEventListener("click", function() {
             checkAllAnswers();
         } else { 
             response.textContent = "Risposta sbagliata!";
+            switch (newsId) {
+                case "1":
+                    response.textContent += " Mettere lo smartphone sotto il cuscino mentre è in carica può essere pericoloso! Fate attenzione a dove caricate il vostro smartphone!";
+                    break;
+                case "2":
+                    response.textContent += " Il 5G non causa il Coronavirus! Non c'e' correlazione tra le due cose! Controllate sempre le fonti, devono essere attendibili!";
+                    break;
+                case "3":
+                    response.textContent += " E' impossibile che una persona possa parlare con il proprio animale domestico!";
+                    break;
+                case "4":
+                    response.textContent += " NO! E' pericolosissimo!";
+                    break;
+                case "5":
+                    response.textContent += " I social network possono essere dannosi per la salute mentale";
+                    break;
+            }
+            response.classList.remove("correct");
             response.classList.add("incorrect");
         }
     }

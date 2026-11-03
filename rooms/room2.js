@@ -9,7 +9,7 @@ let points = document.getElementById("points");
 
 function img_click() { 
     num_answer++;
-    points.textContent=num_answer+"/6";
+    points.textContent=num_answer+"/7";
     img.removeEventListener("click",img_click); //una volta trovato non posso piu cliccarlo
 
     let comment=document.getElementById("comment");
@@ -23,7 +23,7 @@ let notVerified = document.getElementById("user-not-verified");
 
 function not_verified_click() { 
     num_answer++;
-    points.textContent=num_answer+"/6";
+    points.textContent=num_answer+"/7";
     notVerified.removeEventListener("click",not_verified_click); //una volta trovato non posso piu cliccarlo
 
     let comment=document.getElementById("comment");
@@ -37,7 +37,7 @@ let wrongWord = document.getElementById("wrong-word");
 
 function wrong_word_click() { 
     num_answer++;
-    points.textContent=num_answer+"/6";
+    points.textContent=num_answer+"/7";
     wrongWord.removeEventListener("click",wrong_word_click); //una volta trovato non posso piu cliccarlo
 
     let comment=document.getElementById("comment");
@@ -51,7 +51,7 @@ let fakeLink = document.getElementById("fake-link");
 
 function fake_link_click() { 
     num_answer++;
-    points.textContent=num_answer+"/6";
+    points.textContent=num_answer+"/7";
     fakeLink.removeEventListener("click",fake_link_click); //una volta trovato non posso piu cliccarlo
 
     let comment=document.getElementById("comment");
@@ -65,7 +65,7 @@ let warning = document.getElementById("warning");
 
 function warning_click() { 
     num_answer++;
-    points.textContent=num_answer+"/6";
+    points.textContent=num_answer+"/7";
     warning.removeEventListener("click",warning_click); //una volta trovato non posso piu cliccarlo
 
     let comment=document.getElementById("comment");
@@ -79,7 +79,7 @@ let mailFrom = document.getElementById("mail-from");
 
 function mail_from_click() { 
     num_answer++;
-    points.textContent=num_answer+"/6";
+    points.textContent=num_answer+"/7";
     mailFrom.removeEventListener("click",mail_from_click); //una volta trovato non posso piu cliccarlo
 
     let comment=document.getElementById("comment");
@@ -90,7 +90,7 @@ function mail_from_click() {
 mailFrom.addEventListener("click", mail_from_click);
 
 function checkEnd() {
-    if(num_answer==6){
+    if(num_answer==7){
         let endMessage=document.getElementById("end-message");
         endMessage.textContent="Complimenti! Hai trovato tutti gli indizi! Ora puoi passare alla stanza successiva.";
         endMessage.classList.remove("notfinished");
@@ -99,3 +99,17 @@ function checkEnd() {
         localStorage.setItem("room", (parseInt(localStorage.getItem("room")) + 1));
     }
 }
+
+let userMail = document.getElementById("user-mail");
+
+function user_mail_click() { 
+    num_answer++;
+    points.textContent=num_answer+"/7";
+    userMail.removeEventListener("click",user_mail_click); //una volta trovato non posso piu cliccarlo
+
+    let comment=document.getElementById("comment");
+    comment.innerHTML="Bravo/a! In questa mail c'è un mittente sospetto. Controlla sempre la mail del mittente per assicurarti che sia ufficiale.";
+    checkEnd();
+}
+
+userMail.addEventListener("click", user_mail_click);

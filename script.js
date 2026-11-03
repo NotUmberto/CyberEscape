@@ -61,26 +61,31 @@ document.addEventListener("DOMContentLoaded", function() {
         room1.classList.add("completed");
         //rendiamo non piu' cliccabile la stanza 1
         room1.removeEventListener("click", apriRoom1);
+        room1.classList.add("completed");
     }
     if (localStorage.getItem("room2") === "true") {
         room2.classList.add("completed");
         //rendiamo non piu' cliccabile la stanza 2
         room2.removeEventListener("click", apriRoom2);
+        room2.classList.add("completed");
     }
     if (localStorage.getItem("room3") === "true") {
         room3.classList.add("completed");
         //rendiamo non piu' cliccabile la stanza 3
         room3.removeEventListener("click", apriRoom3);
+        room3.classList.add("completed");
     }
     if (localStorage.getItem("room4") === "true") {
         room4.classList.add("completed");
         //rendiamo non piu' cliccabile la stanza 4
         room4.removeEventListener("click", apriRoom4);
+        room4.classList.add("completed");
     }
     if (localStorage.getItem("room5") === "true") {
         room5.classList.add("completed");
         //rendiamo non piu' cliccabile la stanza 5
         room5.removeEventListener("click", apriRoom5);
+        room5.classList.add("completed");
     }
 });
 

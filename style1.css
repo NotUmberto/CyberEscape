@@ -37,6 +37,7 @@ h1 {
 }
 
 .room {
+    position: relative;
     width: clamp(190px, 25vw, 280px);
     height: clamp(135px, 18vw, 190px);
     overflow: hidden;
@@ -75,6 +76,60 @@ h1 {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: filter 0.2s ease;
+}
+
+.room.completed img {
+    filter: grayscale(1) brightness(0.7);
+}
+
+.room:hover img {
+    filter: brightness(0.4);
+}
+
+.room.completed:hover img {
+    filter: grayscale(1) brightness(0.4);
+}
+
+.room::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    color: #ffffff;
+    content: "";
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    opacity: 0;
+    text-shadow: 0 2px 5px #08111f;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+}
+
+#room1::after {
+    content: "Le Password";
+}
+
+#room2::after {
+    content: "Le Mail";
+}
+
+#room3::after {
+    content: "Le Chat";
+}
+
+#room4::after {
+    content: "Le Fake News";
+}
+
+#room5::after {
+    content: "I Permessi";
+}
+
+.room:hover::after {
+    opacity: 1;
 }
 
 body > p {

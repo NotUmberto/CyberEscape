@@ -124,6 +124,40 @@ async function permissions() {
         }
     }
 
+    icon.src = "../icons/youtube.webp";
+
+    titolo.innerHTML = "Consentire a <b>YouTube</b> di accedere alla <b>posizione</b> del dispositivo?";
+    while (true) {
+        let scelta = await attendiScelta();
+        if (scelta === "Nega") {
+            risultato.textContent = "Giusto! Non bisogna dare accessi inutili alle applicazioni, per proteggere la propria privacy!";
+            risultato.classList.remove("incorrect");
+            risultato.classList.add("correct");
+            break;
+        } else {
+            risultato.textContent = "Sbagliato! Pensate ai vostri dati personali e alla vostra privacy!";
+            risultato.classList.remove("correct");
+            risultato.classList.add("incorrect");
+        }
+    }
+
+    icon.src = "../icons/playstore.webp";
+
+    titolo.innerHTML = "Consentire a <b>Play Store</b> di accedere alla <b>posizione</b> del dispositivo?";
+    while (true) {
+        let scelta = await attendiScelta();
+        if (scelta === "Nega") {
+            risultato.textContent = "Giusto! Il Play Store non ha bisogno di accedere alla posizione del dispositivo!";
+            risultato.classList.remove("incorrect");
+            risultato.classList.add("correct");
+            break;
+        } else {
+            risultato.textContent = "Sbagliato! Pensate ai vostri dati personali e alla vostra privacy!";
+            risultato.classList.remove("correct");
+            risultato.classList.add("incorrect");
+        }
+    }
+
     let risultato2 = document.getElementById("risultato2");
     // Mostriamo il messaggio di completamento del quiz
     risultato2.style.display = "block";
