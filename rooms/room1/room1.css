@@ -331,3 +331,59 @@ body > h2 {
         min-width: 0;
     }
 }
+
+.terminal {
+    padding: 0 19px 16px;
+    border: 1px solid #253e67;
+    border-radius: 12px;
+    color: #98abc7;
+    background: #080f20;
+    font-family: "Courier New", monospace;
+    font-size: 0.78rem;
+    text-align: left;
+}
+
+.terminal-top {
+    display: flex;
+    height: 35px;
+    margin: 0 -19px 13px;
+    padding: 0 13px;
+    border-bottom: 1px solid #253e67;
+    align-items: center;
+    gap: 6px;
+}
+
+.terminal-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.dot-red { background: #ff6a76; }
+.dot-yellow { background: #72d4e5; }
+.dot-green { background: #68e0a1; }
+
+.terminal-name {
+    margin-left: 7px;
+    color: #607797;
+    font-size: 0.68rem;
+}
+
+.terminal p {
+    margin: 8px 0 0;
+}
+
+.prompt {
+    color: #72d4e5;
+}
+
+.terminal-success {
+    color: #68e0a1;
+}
+
+.terminal-cursor {
+    display: inline-block;
+    color: #72d4e5;
+    animation: blink 1s steps(2) infinite;
+}
+
