@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function() {
 escapeButton.addEventListener("click", function() {
     let room = localStorage.getItem("room");
     if (room === "5") {
-        window.location.href = "escape.html";
+        window.location.href = "rooms/escape.html";
     }
 });
 

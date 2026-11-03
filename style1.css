@@ -3,6 +3,7 @@
 }
 
 body {
+    position: relative;
     min-height: 100vh;
     margin: 0;
     padding: clamp(32px, 6vw, 70px) 20px;
@@ -15,8 +16,68 @@ body {
     text-align: center;
 }
 
+body::before {
+    position: fixed;
+    z-index: 0;
+    inset: 0;
+    content: "";
+    background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.7) 0 0.7px, transparent 1.2px),
+        radial-gradient(circle, rgba(114, 212, 229, 0.65) 0 0.7px, transparent 1.2px);
+    background-position: 8% 17%, 74% 8%;
+    background-size: 180px 170px, 250px 230px;
+    opacity: 0.38;
+    pointer-events: none;
+    animation: twinkle-background 4s ease-in-out infinite;
+}
+
+body::after {
+    position: fixed;
+    z-index: 0;
+    inset: 0;
+    content: "";
+    background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.6) 0 0.6px, transparent 1.1px),
+        radial-gradient(circle, rgba(114, 212, 229, 0.55) 0 0.6px, transparent 1.1px);
+    background-position: 42% 31%, 91% 67%;
+    background-size: 220px 205px, 310px 280px;
+    opacity: 0.24;
+    pointer-events: none;
+    animation: twinkle-background-alt 5.5s ease-in-out 1.5s infinite;
+}
+
+.sky {
+    position: fixed;
+    z-index: 0;
+    inset: 0;
+    pointer-events: none;
+}
+
+.sky::after {
+    position: fixed;
+    z-index: 0;
+    inset: -20% -35%;
+    content: "";
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(114, 212, 229, 0.02) 38%,
+        rgba(114, 212, 229, 0.13) 50%,
+        rgba(114, 212, 229, 0.02) 62%,
+        transparent 100%
+    );
+    transform: skewX(-18deg) translateX(-75%);
+    animation: scan 9s ease-in-out infinite;
+    pointer-events: none;
+}
+
+body > *:not(.sky) {
+    position: relative;
+    z-index: 1;
+}
+
 h1 {
-    margin: 0 0 clamp(30px, 5vw, 50px);
+    margin: 0 0 clamp(10px, 2vw, 18px);
     color: #ffffff;
     font-size: clamp(2.2rem, 6vw, 4rem);
     font-weight: 800;
@@ -24,6 +85,19 @@ h1 {
     text-shadow: 0 0 12px rgba(114, 212, 229, 0.7),
         0 4px 0 #1d6680;
     animation: comparsa-dall-alto 0.8s ease-out both;
+}
+
+body > h2 {
+    margin: 0 auto clamp(30px, 5vw, 45px);
+    color: #ffffff;
+    font-size: clamp(1.5rem, 3.5vw, 2.4rem);
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    text-align: center;
+    text-shadow: 0 0 12px rgba(114, 212, 229, 0.55),
+        0 3px 0 #1d6680;
+    animation: comparsa 0.8s ease-out 0.15s both;
+    text-decoration: underline;
 }
 
 #game-container {
@@ -298,6 +372,48 @@ body > p {
     }
 }
 
+@keyframes twinkle-background {
+    0%, 100% {
+        opacity: 0.24;
+    }
+
+    50% {
+        opacity: 0.48;
+    }
+}
+
+@keyframes twinkle-background-alt {
+    0%, 100% {
+        opacity: 0.14;
+    }
+
+    50% {
+        opacity: 0.34;
+    }
+}
+
+@keyframes scan {
+    0%, 30% {
+        transform: skewX(-18deg) translateX(-75%);
+    }
+
+    70%, 100% {
+        transform: skewX(-18deg) translateX(75%);
+    }
+}
+
+@keyframes twinkle-star {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(0.7);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.25);
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -332,5 +448,57 @@ body > p {
     #credit {
         left: 14px;
         bottom: 14px;
+    }
+}
+
+.star {
+    position: fixed;
+    z-index: 1;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #8de8f4;
+    box-shadow: 0 0 14px 3px rgba(114, 212, 229, 0.7);
+    animation: twinkle-star 2.8s ease-in-out infinite;
+}
+
+.star-one {
+    top: 18%;
+    left: 12%;
+}
+
+.star-two {
+    top: 42%;
+    left: 78%;
+    animation-delay: 0.8s;
+}
+
+.star-three {
+    top: 75%;
+    left: 35%;
+    animation-delay: 1.4s;
+}
+
+.star-four {
+    top: 88%;
+    left: 82%;
+    animation-delay: 0.4s;
+}
+
+.star-five {
+    top: 25%;
+    left: 50%;
+    animation-delay: 1.8s;
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.25;
+        transform: scale(0.7);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.25);
     }
 }
