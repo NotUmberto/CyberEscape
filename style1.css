@@ -6,7 +6,7 @@ body {
     position: relative;
     min-height: 100vh;
     margin: 0;
-    padding: clamp(32px, 6vw, 70px) 20px;
+    padding: clamp(18px, 3vw, 40px) 20px;
     color: #edf4ff;
     background:
         radial-gradient(circle at 15% 15%, rgba(35, 108, 139, 0.3), transparent 30%),
@@ -77,7 +77,7 @@ body > *:not(.sky) {
 }
 
 h1 {
-    margin: 0 0 clamp(10px, 2vw, 18px);
+    margin: 0 0 clamp(4px, 1vw, 8px);
     color: #ffffff;
     font-size: clamp(2.2rem, 6vw, 4rem);
     font-weight: 800;
@@ -88,7 +88,7 @@ h1 {
 }
 
 body > h2 {
-    margin: 0 auto clamp(30px, 5vw, 45px);
+    margin: 0 auto clamp(28px, 4vw, 38px);
     color: #ffffff;
     font-size: clamp(1.5rem, 3.5vw, 2.4rem);
     font-weight: 800;
@@ -103,7 +103,7 @@ body > h2 {
 #game-container {
     display: flex;
     max-width: 1200px;
-    margin: 0 auto clamp(28px, 5vw, 45px);
+    margin: 0 auto clamp(14px, 2vw, 22px);
     gap: clamp(20px, 3vw, 35px);
     flex-wrap: wrap;
     justify-content: center;
@@ -207,7 +207,7 @@ body > h2 {
 }
 
 body > p {
-    margin: 20px auto;
+    margin: 10px auto;
     color: #b7c8df;
     font-size: clamp(1.1rem, 2vw, 1.35rem);
     animation: comparsa 0.8s ease-out 0.6s both;
@@ -218,12 +218,12 @@ body > p {
     bottom: 46px;
     left: 50%;
     z-index: 2;
-    padding: 18px clamp(44px, 7vw, 76px);
+    padding: 20px clamp(48px, 7vw, 82px);
     border: 2px solid #8f111b;
     border-radius: 8px;
     color: #ffffff;
     background: #b51f2b;
-    font-size: clamp(1.2rem, 2.6vw, 1.6rem);
+    font-size: clamp(1.25rem, 2.7vw, 1.7rem);
     font-weight: bold;
     letter-spacing: 0.08em;
     cursor: pointer;
@@ -443,7 +443,7 @@ body > p {
 
 @media (max-width: 500px) {
     body {
-        padding: 28px 14px;
+        padding: 18px 14px;
     }
 
     .room {
@@ -458,7 +458,7 @@ body > p {
 
     #escape-button {
         bottom: 30px;
-        padding: 16px 38px;
+        padding: 18px 42px;
     }
 
     #fullscreen-button {
@@ -539,7 +539,7 @@ body > p {
 
 .terminal {
     width: min(92%, 760px);
-    margin: 0 auto;
+    margin: 14px auto 0;
     padding: 0 24px 22px;
     border: 2px solid #253e67;
     border-radius: 12px;

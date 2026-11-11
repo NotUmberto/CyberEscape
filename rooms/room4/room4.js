@@ -6,18 +6,19 @@ let rightAnswers = {
     "notizia2": "Falsa",
     "notizia3": "Falsa",
     "notizia4": "Falsa",
-    "notizia5": "Vera"
+    "notizia5": "Vera",
+    "notizia6": "Falsa"
 };
 
 let homeButton = document.getElementById("home-button");
 homeButton.disabled = true;
 
 homeButton.addEventListener("click", function() {
-    window.location.href = "../../main.html";
+    window.location.href = "../../index.html";
 });
 
 function checkAllAnswers() {
-    if (num_rightAnswers === 5) {
+    if (num_rightAnswers === 6) {
         homeButton.disabled = false;
         localStorage.setItem("room", (parseInt(localStorage.getItem("room")) + 1));
         localStorage.setItem("room4", "true");
@@ -49,6 +50,9 @@ newsDiv.addEventListener("click", function() {
                 case "5":
                     response.textContent += " Putroppo e' vero. L'uso di uno screen-timer puo' aiutare a limitare il tempo passato sui social e ridurre lo stress!";
                     break;
+                case "6":
+                    response.textContent += " Questa notizia è falsa. Non c'è alcuna relazione tra il pianto del Capo di Stato e il clima in Cina.";
+                    break;
             }
             response.classList.remove("incorrect");
             response.classList.add("correct");
@@ -76,6 +80,9 @@ newsDiv.addEventListener("click", function() {
                     break;
                 case "5":
                     response.textContent += " I social network possono essere dannosi per la salute mentale";
+                    break;
+                case "6":
+                    response.textContent += " Questa notizia è falsa! Pensate sempre alla credibilita' di certe notizie.";
                     break;
             }
             response.classList.remove("correct");

@@ -2,6 +2,53 @@
     box-sizing: border-box;
 }
 
+.sky {
+    position: fixed;
+    z-index: 0;
+    inset: 0;
+    pointer-events: none;
+}
+
+.sky::after {
+    position: fixed;
+    z-index: 0;
+    inset: -20% -35%;
+    content: "";
+    background: linear-gradient(90deg, transparent, rgba(114, 212, 229, 0.13), transparent);
+    transform: skewX(-18deg) translateX(-75%);
+    animation: scan 9s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.star {
+    position: fixed;
+    z-index: 1;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #8de8f4;
+    box-shadow: 0 0 14px 3px rgba(114, 212, 229, 0.7);
+    animation: twinkle-star 2.8s ease-in-out infinite;
+}
+
+.star-one { top: 18%; left: 12%; }
+.star-two { top: 42%; left: 78%; animation-delay: 0.8s; }
+.star-three { top: 75%; left: 35%; animation-delay: 1.4s; }
+.star-four { top: 88%; left: 82%; animation-delay: 0.4s; }
+.star-five { top: 25%; left: 50%; animation-delay: 1.8s; }
+
+body > *:not(.sky) { position: relative; z-index: 1; }
+
+@keyframes twinkle-star {
+    0%, 100% { opacity: 0.3; transform: scale(0.7); }
+    50% { opacity: 1; transform: scale(1.25); }
+}
+
+@keyframes scan {
+    0%, 30% { transform: skewX(-18deg) translateX(-75%); }
+    70%, 100% { transform: skewX(-18deg) translateX(75%); }
+}
+
 body {
     min-height: 100vh;
     margin: 0;
@@ -159,7 +206,6 @@ body > h2 {
     font-weight: 700;
 }
 
-#comment,
 #end-message {
     width: min(94%, 1000px);
     margin: 18px auto 0;
@@ -178,8 +224,59 @@ body > h2 {
 }
 
 #comment {
-    opacity: 1;
+    width: min(94%, 1000px);
+    margin: 18px auto 0;
+    padding: 0 20px 18px;
+    overflow: hidden;
+    color: #98abc7;
+    background: #080f20;
+    border: 2px solid #253e67;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+    font-family: "Courier New", monospace;
+    font-size: clamp(0.82rem, 1.3vw, 1rem);
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
     animation: none;
+}
+
+#comment .terminal-top {
+    display: flex;
+    height: 42px;
+    margin: 0 -20px 16px;
+    padding: 0 15px;
+    border-bottom: 1px solid #253e67;
+    align-items: center;
+    gap: 7px;
+}
+
+#comment .terminal-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+#comment .dot-red {
+    background: #ff6a76;
+}
+
+#comment .dot-yellow {
+    background: #72d4e5;
+}
+
+#comment .dot-green {
+    background: #68e0a1;
+}
+
+#comment .terminal-name {
+    margin-left: 7px;
+    color: #607797;
+    font-size: 0.75rem;
+}
+
+#comment #escape-text {
+    margin: 0;
 }
 
 #end-message {
@@ -302,6 +399,20 @@ body > h2 {
 
     #bodymail-div {
         padding: 14px 12px;
+    }
+
+    #comment {
+        padding-right: 14px;
+        padding-left: 14px;
+    }
+
+    #comment .terminal-top {
+        margin-right: -14px;
+        margin-left: -14px;
+    }
+
+    #comment .terminal-name {
+        font-size: 0.65rem;
     }
 }
 

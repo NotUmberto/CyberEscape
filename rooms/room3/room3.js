@@ -32,6 +32,7 @@ function delete_photo() {
     response_span.classList.add("correct");
     right_answers++;
     check_answers();
+    delete_span.removeEventListener("click", delete_photo); 
 }
 
 delete_span.addEventListener("click", delete_photo);
@@ -42,6 +43,7 @@ function report_photo() {
     response_span.classList.add("correct");
     right_answers++;
     check_answers();
+    report_span.removeEventListener("click", report_photo);
 }
 
 report_span.addEventListener("click", report_photo);
@@ -52,6 +54,7 @@ function invite_chat() {
     response_span.classList.add("correct");
     right_answers++;
     check_answers();
+    invite_span.removeEventListener("click", invite_chat);
 }
 
 invite_span.addEventListener("click", invite_chat);

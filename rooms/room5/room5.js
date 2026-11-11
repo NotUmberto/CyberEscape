@@ -170,5 +170,5 @@ async function permissions() {
 permissions();
 
 homeButton.addEventListener("click", function() {
-    window.location.href = "../../main.html";
+    window.location.href = "../../index.html";
 });

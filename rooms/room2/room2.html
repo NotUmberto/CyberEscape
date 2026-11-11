@@ -4,6 +4,13 @@
         <link rel="stylesheet" href="room2.css">
     </head>
     <body>
+        <div class="sky">
+            <span class="star star-one"></span>
+            <span class="star star-two"></span>
+            <span class="star star-three"></span>
+            <span class="star star-four"></span>
+            <span class="star star-five"></span>
+        </div>
         <h1>Stanza 2: Le Mail</h1>
         <h2> Cosa rende questa mail falsa?</h2>
         <div id="mail-div">
@@ -29,8 +36,16 @@
             </div>
         </div>
 
-        <p id="comment"> Clicca sugli elementi sospetti!</p>
-        <input type="button" id="home-button" value="Torna alla home" onclick="window.location.href='../../main.html'">
+        <div id="comment" class="terminal" role="status">
+            <div class="terminal-top">
+                <span class="terminal-dot dot-red"></span>
+                <span class="terminal-dot dot-yellow"></span>
+                <span class="terminal-dot dot-green"></span>
+                <span class="terminal-name">cyberescape@guardian:~</span>
+            </div>
+            <p id="escape-text"> Clicca sugli elementi sospetti</p>
+        </div>
+        <input type="button" id="home-button" value="Torna alla home" onclick="window.location.href='../../index.html'">
         <p id="end-message" class="notfinished"></p>
         <p id="points">0/7</p>
         <script src="room2.js"></script>

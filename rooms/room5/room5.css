@@ -2,6 +2,53 @@
     box-sizing: border-box;
 }
 
+.sky {
+    position: fixed;
+    z-index: 0;
+    inset: 0;
+    pointer-events: none;
+}
+
+.sky::after {
+    position: fixed;
+    z-index: 0;
+    inset: -20% -35%;
+    content: "";
+    background: linear-gradient(90deg, transparent, rgba(114, 212, 229, 0.13), transparent);
+    transform: skewX(-18deg) translateX(-75%);
+    animation: scan 9s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.star {
+    position: fixed;
+    z-index: 1;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #8de8f4;
+    box-shadow: 0 0 14px 3px rgba(114, 212, 229, 0.7);
+    animation: twinkle-star 2.8s ease-in-out infinite;
+}
+
+.star-one { top: 18%; left: 12%; }
+.star-two { top: 42%; left: 78%; animation-delay: 0.8s; }
+.star-three { top: 75%; left: 35%; animation-delay: 1.4s; }
+.star-four { top: 88%; left: 82%; animation-delay: 0.4s; }
+.star-five { top: 25%; left: 50%; animation-delay: 1.8s; }
+
+body > *:not(.sky) { position: relative; z-index: 1; }
+
+@keyframes twinkle-star {
+    0%, 100% { opacity: 0.3; transform: scale(0.7); }
+    50% { opacity: 1; transform: scale(1.25); }
+}
+
+@keyframes scan {
+    0%, 30% { transform: skewX(-18deg) translateX(-75%); }
+    70%, 100% { transform: skewX(-18deg) translateX(75%); }
+}
+
 body {
     min-height: 100vh;
     margin: 0;

@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function() {
 escapeButton.addEventListener("click", function() {
     let room = localStorage.getItem("room");
     if (room === "5") {
-        window.location.href = "rooms/escape.html";
+        window.location.href = "rooms/escape/escape.html";
     }
 });
 
@@ -105,7 +105,7 @@ resetButton.addEventListener("click", function() {
 
 let credit = document.getElementById("credit");
 credit.addEventListener("click", function() {
-    window.location.href = "rooms/credit.html";
+    window.location.href = "rooms/credits/credit.html";
 });
 
 let secret=0;

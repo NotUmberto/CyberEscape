@@ -12,7 +12,7 @@ function img_click() {
     points.textContent=num_answer+"/7";
     img.removeEventListener("click",img_click); //una volta trovato non posso piu cliccarlo
 
-    let comment=document.getElementById("comment");
+    let comment=document.getElementById("escape-text");
     comment.textContent="Bravo/a! Ogni utente ufficiale ha una immagine profilo. Altrimenti sarebbe un falso."
     checkEnd();
 }
@@ -26,7 +26,7 @@ function not_verified_click() {
     points.textContent=num_answer+"/7";
     notVerified.removeEventListener("click",not_verified_click); //una volta trovato non posso piu cliccarlo
 
-    let comment=document.getElementById("comment");
+    let comment=document.getElementById("escape-text");
     comment.textContent="Bravo/a! Ogni utente ufficiale ha un account verificato. Altrimenti potrebbe essere un falso."
     checkEnd();
 }
@@ -40,7 +40,7 @@ function wrong_word_click() {
     points.textContent=num_answer+"/7";
     wrongWord.removeEventListener("click",wrong_word_click); //una volta trovato non posso piu cliccarlo
 
-    let comment=document.getElementById("comment");
+    let comment=document.getElementById("escape-text");
     comment.textContent="Bravo/a! In questa mail c'è un errore di ortografia. Gli utenti ufficiali non commettono errori di ortografia."
     checkEnd();
 }
@@ -54,8 +54,8 @@ function fake_link_click() {
     points.textContent=num_answer+"/7";
     fakeLink.removeEventListener("click",fake_link_click); //una volta trovato non posso piu cliccarlo
 
-    let comment=document.getElementById("comment");
-    comment.innerHTML+="Bravo/a! In questa mail c'è un link sospetto. Gli utenti ufficiali non inviano link sospetti. <br> Consiglio: per capire se un link e' vero guarda il nome prima dell'ultimo punto (.) e non dopo. Ad esempio: https://www.gogle.verifica.account.com/ e' un link falso perche' il nome prima dell'ultimo punto e' 'account' e non 'google'!.";
+    let comment=document.getElementById("escape-text");
+    comment.innerHTML="Bravo/a! In questa mail c'è un link sospetto. Gli utenti ufficiali non inviano link sospetti. <br> Consiglio: per capire se un link e' vero guarda il nome prima dell'ultimo punto (.) e non dopo. Ad esempio: https://www.gogle.verifica.account.com/ e' un link falso perche' il nome prima dell'ultimo punto e' 'account' e non 'google'!.";
     checkEnd();
 }
 
@@ -68,7 +68,7 @@ function warning_click() {
     points.textContent=num_answer+"/7";
     warning.removeEventListener("click",warning_click); //una volta trovato non posso piu cliccarlo
 
-    let comment=document.getElementById("comment");
+    let comment=document.getElementById("escape-text");
     comment.innerHTML="Bravo/a! In questa mail c'è un messaggio di minaccia. Gli utenti ufficiali non inviano messaggi di minaccia e non mettono mai fretta.";
     checkEnd();
 }
@@ -82,7 +82,7 @@ function mail_from_click() {
     points.textContent=num_answer+"/7";
     mailFrom.removeEventListener("click",mail_from_click); //una volta trovato non posso piu cliccarlo
 
-    let comment=document.getElementById("comment");
+    let comment=document.getElementById("escape-text");
     comment.innerHTML="Ottimo! In questa mail c'è un mittente sospetto. Gli utenti ufficiali specificano sempre il loro nome e non solo l'indirizzo mail.";
     checkEnd();
 }
@@ -107,7 +107,7 @@ function user_mail_click() {
     points.textContent=num_answer+"/7";
     userMail.removeEventListener("click",user_mail_click); //una volta trovato non posso piu cliccarlo
 
-    let comment=document.getElementById("comment");
+    let comment=document.getElementById("escape-text");
     comment.innerHTML="Bravo/a! In questa mail c'è un mittente sospetto. Controlla sempre la mail del mittente per assicurarti che sia ufficiale.";
     checkEnd();
 }
