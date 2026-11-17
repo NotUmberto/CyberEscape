@@ -139,6 +139,19 @@ body > h2 {
     animation-delay: 0.4s;
 }
 
+#bonus {
+    display: none;
+}
+
+#bonus.show-bonus {
+    display: block;
+    animation: comparsa-dal-basso 0.7s ease-out both;
+}
+
+#bonus::after {
+    content: "Stanza Bonus";
+}
+
 .room:hover {
     transform: translateY(-8px) scale(1.04);
     border-color: #72d4e5;

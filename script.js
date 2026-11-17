@@ -3,6 +3,7 @@ let room2=document.getElementById("room2");
 let room3=document.getElementById("room3");
 let room4=document.getElementById("room4");
 let room5=document.getElementById("room5");
+let bonus=document.getElementById("bonus");
 
 function apriRoom1() { 
     window.location.href = "rooms/room1/room1.html";
@@ -19,18 +20,24 @@ function apriRoom4() {
 function apriRoom5() {
     window.location.href = "rooms/room5/room5.html";
 }
-
+function apriBonus() {
+    window.location.href = "rooms/room6/bonus.html";
+}
 room1.addEventListener("click", apriRoom1);
 room2.addEventListener("click", apriRoom2);
 room3.addEventListener("click", apriRoom3);
 room4.addEventListener("click", apriRoom4);
 room5.addEventListener("click", apriRoom5);
+bonus.addEventListener("click", apriBonus);
 
 let escapeButton = document.getElementById("escape-button");
 
 //quando carichiamo il DOM controlliamo se il valore di room nella localstorage e' 5, se si allora abilitiamo il bottone escape
 document.addEventListener("DOMContentLoaded", function() {
     let room = localStorage.getItem("room");
+
+    //inizialmente nascondiamo la stanza bonus
+    bonus.classList.add("not-show-bonus");
 
     //gestiamo il bottone
     if (room == null) { 
@@ -86,6 +93,10 @@ document.addEventListener("DOMContentLoaded", function() {
         //rendiamo non piu' cliccabile la stanza 5
         room5.removeEventListener("click", apriRoom5);
         room5.classList.add("completed");
+    }
+    if (localStorage.getItem("bonus") === "true") {
+        bonus.classList.remove("not-show-bonus");
+        bonus.classList.add("show-bonus");
     }
 });
 
