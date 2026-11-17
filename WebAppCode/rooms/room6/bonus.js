@@ -1,4 +1,5 @@
 let score = 0;
+let time = 2000; //2 secondi
 
 addEventListener("DOMContentLoaded", function() {
     //ogni 2 secondi
@@ -23,6 +24,9 @@ addEventListener("DOMContentLoaded", function() {
             div.removeChild(newvirus);
             //aggiungiamo il punteggio allo score
             score += 1;
+            if (score % 5 === 0) {
+                time -= 200; //diminuiamo il tempo di 0.2 secondi
+            }
             document.getElementById("score-value").textContent = score;
         }); 
 
@@ -30,14 +34,19 @@ addEventListener("DOMContentLoaded", function() {
         div.appendChild(newvirus);
 
         //ogni 0.2 secondi scende di 10px
-        setInterval(function() { 
-            newvirus.style.top = parseInt(newvirus.style.top) + 10 + "px";
+        let fallInterval = setInterval(function() { 
+            newvirus.style.top = parseInt(newvirus.style.top) + 40 + "px";
             if (parseInt(newvirus.style.top) > height) {
-                div.removeChild(newvirus);
-                //togliamo il punteggio dallo score
-                score -= 1;
-                document.getElementById("score-value").textContent = score;
+                //rimuoviamo l'elemento dal DOM
+                if (div.contains(newvirus)) {
+                    div.removeChild(newvirus);
+                    //fermiamo l'intervallo
+                    clearInterval(fallInterval);
+                    //togliamo il punteggio dallo score
+                    score -= 1;
+                    document.getElementById("score-value").textContent = score;
+                }
             }
         }, 200);
-    }, 2000);
+    }, time);
 });
