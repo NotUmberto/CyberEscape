@@ -7,12 +7,43 @@ let temp_speed = speed;
 
 let spawnInterval;
 let spawnIntervalAngry;
+let movementInterval;
 
 let isPaused = false;
 let isGameOver = false;
 
 function calculateRandomPosition(width) {
     return Math.random() * (width - 100) + "px";
+}
+
+function avviaMovimento() {
+    clearInterval(movementInterval);
+    movementInterval = setInterval(function() {
+        if (isPaused || isGameOver) return;
+
+        var div = document.querySelector(".space");
+        var height = div.offsetHeight;
+        var viruses = div.querySelectorAll("img");
+
+        viruses.forEach(function(virus) {
+            var fallSpeed = virus.dataset.type === "angry"
+                ? speed * 1.15
+                : speed;
+
+            virus.style.top = parseInt(virus.style.top) + fallSpeed + "px";
+
+            if (parseInt(virus.style.top) > height && div.contains(virus)) {
+                div.removeChild(virus);
+                score -= 1;
+
+                if (score < 0) {
+                    loseGame();
+                }
+
+                document.getElementById("score-value").textContent = score;
+            }
+        });
+    }, 200);
 }
 
 function loseGame() {
@@ -41,12 +72,12 @@ function clickVirus(newvirus) {
 }
 
 function avviaGenerazione() {
+    clearInterval(spawnInterval);
     //ogni 2 secondi
     spawnInterval = setInterval(function() {
         //prendiamo la grandezza del div
         var div = document.querySelector(".space");
         var width = div.offsetWidth;
-        var height = div.offsetHeight;
 
         //creiamo un nuovo elemento
         var newvirus = document.createElement("img");
@@ -66,43 +97,24 @@ function avviaGenerazione() {
 
         //aggiungiamo l'elemento al div
         div.appendChild(newvirus);
-
-        //ogni 0.2 secondi scende di speed px
-        let fallInterval = setInterval(function() { 
-            newvirus.style.top = parseInt(newvirus.style.top) + speed + "px";
-            if (parseInt(newvirus.style.top) > height) {
-                //rimuoviamo l'elemento dal DOM
-                if (div.contains(newvirus)) {
-                    div.removeChild(newvirus);
-                    //fermiamo l'intervallo
-                    clearInterval(fallInterval);
-                    //togliamo il punteggio dallo score
-                    score -= 1;
-                    if (score < 0) {
-                        //hai perso, fermiamo il gioco e resettiamo lo score
-                        loseGame();
-                    }
-                    document.getElementById("score-value").textContent = score;
-                }
-            }
-        }, 200);
     }, time);
 }
 
 addEventListener("DOMContentLoaded", function() {
     avviaGenerazione();
     avviaGenerazioneAngry();
+    avviaMovimento();
 });
 
 
 function avviaGenerazioneAngry() {
+    clearInterval(spawnIntervalAngry);
     //ogni 3 secondi
     spawnIntervalAngry = setInterval(function() {
-        if (score % 4 === 0 && score > 20) {
+        if (score % 4 === 0 && score > 10) {
             //prendiamo la grandezza del div
             var div = document.querySelector(".space");
             var width = div.offsetWidth;
-            var height = div.offsetHeight;
 
             //creiamo un nuovo elemento
             var newvirus = document.createElement("img");
@@ -122,26 +134,6 @@ function avviaGenerazioneAngry() {
 
             //aggiungiamo l'elemento al div
             div.appendChild(newvirus);
-
-            //ogni 0.2 secondi scende di speed px
-            let fallInterval = setInterval(function() { 
-                newvirus.style.top = parseInt(newvirus.style.top) + speed*1.15 + "px";
-                if (parseInt(newvirus.style.top) > height) {
-                    //rimuoviamo l'elemento dal DOM
-                    if (div.contains(newvirus)) {
-                        div.removeChild(newvirus);
-                        //fermiamo l'intervallo
-                        clearInterval(fallInterval);
-                        //togliamo il punteggio dallo score
-                        score -= 1;
-                        if (score < 0) {
-                            //hai perso, fermiamo il gioco e resettiamo lo score
-                            loseGame();
-                        }
-                        document.getElementById("score-value").textContent = score;
-                    }
-                }
-            }, 200);
         }
     }, 3000);
 }
@@ -153,10 +145,11 @@ function pauseGame() {
     temp_time = time;
     temp_speed = speed;
 
-    speed = 0;
+    //speed = 0;
     
     clearInterval(spawnInterval);
     clearInterval(spawnIntervalAngry);
+    clearInterval(movementInterval);
 }
 
 document.getElementById("pause").addEventListener("click", function() {
@@ -176,6 +169,7 @@ function resumeGame() {
 
     avviaGenerazione();
     avviaGenerazioneAngry();
+    avviaMovimento();
 }
 
 document.getElementById("resume").addEventListener("click", function() {
@@ -183,6 +177,7 @@ document.getElementById("resume").addEventListener("click", function() {
 });
 
 function resetGame() {
+    document.getElementById("lose-message").textContent = "";
     isPaused = false;
     isGameOver = false;
 
@@ -200,9 +195,11 @@ function resetGame() {
     //fermiamo l'intervallo
     clearInterval(spawnInterval);
     clearInterval(spawnIntervalAngry);
+    clearInterval(movementInterval);
     //riprendiamo il gioco
     avviaGenerazione();
     avviaGenerazioneAngry();
+    avviaMovimento();
 }
 
 document.getElementById("reset").addEventListener("click", resetGame);

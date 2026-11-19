@@ -78,6 +78,74 @@ body::before {
         hue-rotate(70deg)
         saturate(2);
     cursor: crosshair;
+    animation: virus-enter 300ms ease-out, virus-float 1.1s ease-in-out 300ms infinite;
+    transition:
+        filter 150ms ease,
+        opacity 150ms ease;
+}
+
+.space img:hover {
+    filter:
+        drop-shadow(0 0 14px rgba(160, 255, 194, 1))
+        brightness(1.35)
+        sepia(1)
+        hue-rotate(70deg)
+        saturate(2);
+    animation-play-state: running;
+}
+
+.space img:active {
+    transform: scale(0.78);
+    filter: brightness(2);
+}
+
+#score-value {
+    animation: score-glow 1.8s ease-in-out infinite;
+}
+
+input[type="button"] {
+    transition:
+        background 150ms ease,
+        color 150ms ease,
+        box-shadow 150ms ease,
+        transform 100ms ease;
+}
+
+@keyframes virus-enter {
+    0% {
+        transform: scale(0.25) rotate(-15deg);
+        opacity: 0;
+    }
+    65% {
+        transform: scale(1.12) rotate(4deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes virus-float {
+    0%,
+    100% {
+        margin-left: 0;
+    }
+    50% {
+        margin-left: 7px;
+    }
+}
+
+@keyframes score-glow {
+    0%,
+    100% {
+        text-shadow: 0 0 5px rgba(101, 255, 154, 0.75);
+    }
+    50% {
+        text-shadow:
+            0 0 8px #65ff9a,
+            0 0 16px #65ff9a;
+    }
 }
 
 .footer {
