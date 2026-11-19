@@ -7,7 +7,17 @@
     </head>
     <body>
         <div class="space"></div>
-        <p id="score">Il tuo punteggio è: <span id="score-value"></span></p>
+        <div class="footer">
+            <div id="score-div"><p id="score">Il tuo punteggio è: <span id="score-value">0</span></p></div> 
+            <div id="lose-div"><p id="lose-message"></p></div>     
+            <div id="button-div">
+                <input type="button" value="pausa" id="pause">
+                <input type="button" value="reset" id="reset">
+                <input type="button" value="riprendi" id="resume">
+                <input type="button" value="Home" id="home"></div>
+            </div>
+        </div>
+
         <script src="bonus.js"></script>
     </body>
 </html>

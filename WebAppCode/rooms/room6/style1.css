@@ -1,6 +1,203 @@
-div {
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
     width: 100%;
-    height: 95%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    color: #65ff9a;
+    background:
+        linear-gradient(rgba(4, 18, 12, 0.35), rgba(4, 18, 12, 0.35)),
+        repeating-linear-gradient(
+            0deg,
+            #07110c 0,
+            #07110c 3px,
+            #0a1b11 3px,
+            #0a1b11 6px
+        );
+    font-family: "Courier New", Courier, monospace;
+    text-shadow: 0 0 5px rgba(101, 255, 154, 0.75);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.18) 0,
+        rgba(0, 0, 0, 0.18) 1px,
+        transparent 1px,
+        transparent 4px
+    );
+}
+
+.space {
     position: relative;
-    border: 2px solid black;
+    width: 100%;
+    height: calc(100% - 110px);
+    overflow: hidden;
+    border: 2px solid #65ff9a;
+    border-bottom: 0;
+    background:
+        radial-gradient(circle at 50% 45%, rgba(50, 140, 82, 0.12), transparent 55%),
+        rgba(3, 12, 7, 0.62);
+    box-shadow:
+        inset 0 0 24px rgba(101, 255, 154, 0.12),
+        0 0 12px rgba(101, 255, 154, 0.08);
+}
+
+.space::before {
+    content: "SYSTEM://SECURITY_GAME";
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    z-index: 2;
+    transform: translateX(-50%);
+    color: rgba(101, 255, 154, 0.72);
+    font-size: clamp(16px, 1.8vw, 24px);
+    letter-spacing: 3px;
+    pointer-events: none;
+}
+
+.space img {
+    z-index: 3;
+    filter:
+        drop-shadow(0 0 4px rgba(101, 255, 154, 0.9))
+        sepia(1)
+        hue-rotate(70deg)
+        saturate(2);
+    cursor: crosshair;
+}
+
+.footer {
+    display: grid;
+    grid-template-columns: 40% 20% 40%;
+    align-items: center;
+    width: 100%;
+    height: 110px;
+    min-height: 110px;
+    border: 2px solid #65ff9a;
+    background: rgba(3, 12, 7, 0.96);
+    box-shadow:
+        inset 0 0 12px rgba(101, 255, 154, 0.12),
+        0 -4px 18px rgba(101, 255, 154, 0.08);
+}
+
+#score-div,
+#lose-div,
+#button-div {
+    height: 100%;
+}
+
+#score-div {
+    display: flex;
+    align-items: center;
+    padding-left: 18px;
+    text-align: left;
+}
+
+#score {
+    margin: 0;
+    font-size: clamp(20px, 2.2vw, 30px);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#score-value {
+    display: inline-block;
+    min-width: 3ch;
+    color: #a0ffc2;
+}
+
+#lose-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#lose-message {
+    margin: 0;
+    color: #ff7373;
+    font-size: clamp(20px, 2.2vw, 30px);
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 0 0 6px rgba(255, 115, 115, 0.9);
+}
+
+#button-div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-right: 24px;
+}
+
+input[type="button"] {
+    min-width: 118px;
+    height: 58px;
+    border: 2px solid #65ff9a;
+    border-radius: 0;
+    color: #65ff9a;
+    background: rgba(8, 29, 17, 0.9);
+    font-family: "Courier New", Courier, monospace;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 0 0 5px rgba(101, 255, 154, 0.8);
+    box-shadow: inset 0 0 8px rgba(101, 255, 154, 0.08);
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    color: #07110c;
+    background: #65ff9a;
+    text-shadow: none;
+    box-shadow:
+        0 0 10px rgba(101, 255, 154, 0.75),
+        inset 0 0 6px rgba(255, 255, 255, 0.35);
+}
+
+input[type="button"]:active {
+    transform: translateY(1px);
+    background: #45c978;
+}
+
+input[type="button"]:focus-visible {
+    outline: 2px dashed #a0ffc2;
+    outline-offset: 3px;
+}
+
+@media (max-width: 700px) {
+    .footer {
+        grid-template-columns: 36% 20% 44%;
+    }
+
+    #score-div {
+        padding-left: 8px;
+    }
+
+    #button-div {
+        gap: 6px;
+        padding-right: 10px;
+    }
+
+    input[type="button"] {
+        min-width: 72px;
+        height: 56px;
+        padding: 0 8px;
+        font-size: 13px;
+    }
 }
