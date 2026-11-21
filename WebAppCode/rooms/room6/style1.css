@@ -72,6 +72,9 @@ body::before {
 
 .space img {
     z-index: 3;
+    user-select: none;
+    -webkit-user-drag: none;
+    touch-action: none;
     filter:
         drop-shadow(0 0 4px rgba(101, 255, 154, 0.9))
         sepia(1)
@@ -97,6 +100,22 @@ body::before {
 .space img:active {
     transform: scale(0.78);
     filter: brightness(2);
+}
+
+.space img.virus-hit {
+    pointer-events: none;
+    animation: virus-hit 220ms ease-out forwards;
+}
+
+@keyframes virus-hit {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5) rotate(18deg);
+        opacity: 0;
+    }
 }
 
 #score-value {

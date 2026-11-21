@@ -2,8 +2,12 @@ let score = 0;
 let time = 2000; //2 secondi
 let speed = 20;
 
+let lifes = 7;
+
 let temp_time = time;
 let temp_speed = speed;
+const MIN_SPAWN_TIME = 500;
+const MAX_FALL_SPEED = 80;
 
 let spawnInterval;
 let spawnIntervalAngry;
@@ -11,6 +15,8 @@ let movementInterval;
 
 let isPaused = false;
 let isGameOver = false;
+
+
 
 function calculateRandomPosition(width) {
     return Math.random() * (width - 100) + "px";
@@ -26,6 +32,8 @@ function avviaMovimento() {
         var viruses = div.querySelectorAll("img");
 
         viruses.forEach(function(virus) {
+            if (virus.dataset.hit === "true") return;
+
             var fallSpeed = virus.dataset.type === "angry"
                 ? speed * 1.15
                 : speed;
@@ -55,9 +63,20 @@ function loseGame() {
 }
 
 function clickVirus(newvirus) {
-    //rimuoviamo l'elemento dal div
     var div = document.querySelector(".space");
-    div.removeChild(newvirus);
+
+    if (!div.contains(newvirus)) return;
+    if (newvirus.dataset.hit === "true") return;
+
+    newvirus.dataset.hit = "true";
+    newvirus.classList.add("virus-hit");
+
+    setTimeout(function() {
+        if (div.contains(newvirus)) {
+            div.removeChild(newvirus);
+        }
+    }, 220);
+
     //aggiungiamo il punteggio allo score
     if (newvirus.dataset.type === "virus") {
         score += 1;
@@ -65,8 +84,12 @@ function clickVirus(newvirus) {
         score += 3;
     }
     if (score % 4 === 0) {
-        time -= 250; //diminuiamo il tempo di 0.2 secondi
-        speed+= 5; //aumentiamo la velocità di 5px
+        time = Math.max(MIN_SPAWN_TIME, time - 250);
+        speed = Math.min(MAX_FALL_SPEED, speed + 5);
+
+        if (!isPaused) {
+            avviaGenerazione();
+        }
     }
     document.getElementById("score-value").textContent = score;
 }
@@ -89,10 +112,13 @@ function avviaGenerazione() {
         newvirus.style.width = "120px";
         newvirus.style.height = "90px";
         newvirus.dataset.type = "virus";
+        newvirus.draggable = false;
 
-        newvirus.addEventListener("click", function() {
-            if (!isPaused)
+        newvirus.addEventListener("pointerdown", function(event) {
+            event.preventDefault();
+            if (!isPaused && !isGameOver) {
                 clickVirus(newvirus);
+            }
         });
 
         //aggiungiamo l'elemento al div
@@ -125,9 +151,11 @@ function avviaGenerazioneAngry() {
             newvirus.style.width = "120px";
             newvirus.style.height = "90px";
             newvirus.dataset.type = "angry";
+            newvirus.draggable = false;
 
-            newvirus.addEventListener("click", function() {
-                if (!isPaused) {
+            newvirus.addEventListener("pointerdown", function(event) {
+                event.preventDefault();
+                if (!isPaused && !isGameOver) {
                     clickVirus(newvirus);
                 }
             });
